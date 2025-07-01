@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>Add commentMore actions
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,33 +7,18 @@
     <link rel="stylesheet" href="./Styles/login.css">
 </head>
 <body>
-    <form>
-  <label>
-    <input type="checkbox" name="languages" value="HTML">
-    I want to learn HTML
-  </label>
-  <br>
-  <label>
-    <input type="checkbox" name="languages" value="CSS">
-    I want to learn CSS
-  </label>
-  <br>
-  <label>
-    <input type="checkbox" name="languages" value="JS">
-    I want to learn JS
-  </label>
-</form>
-<form>
-    <label>
-      <input type="radio" name="question">
-      Yes
-    </label>
-    <br>
-    <label>
-      <input type="radio" name="question">
-      No
-    </label>
-  </form>
+    <form action="" id="loginForm">
+        <h2>Login Form</h2>
+        <label for="email">Email</label>
+        <input type="email" id="email"> <br>
+
+        <label for="password">Password</label>
+        <input type="password" id="password"><br>
+
+        <button type="submit" class="btn-signIn">Login</button>
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </form>
+
     <script src="./JavaScript/login.js"></script>
 </body>
 </html>
