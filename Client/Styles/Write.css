@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    border: 1px solid black;
+    padding: .7rem 2rem;
+}
+
+ul{
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+    padding-left: 50rem;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+}
+
+form{
+    border: 1px solid black;
+    padding: 3rem;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: .5rem;
+    background-color: aquamarine;
+    margin-top: 3rem;
+}
+
+input{
+    padding: .5rem;
+    margin-bottom: 1rem;
+    border: 1px solid black;
+    border-radius: .5rem;
+    outline: none;
+}
+
+textarea{
+    padding: .5rem;
+    margin-bottom: 1rem;
+    border: 1px solid black;
+    border-radius: .5rem;
+    outline: none;
+}
+
+#write-button{
+    padding: .5rem;
+    border: 1px solid black;
+    border-radius: .5rem;
+}

@@ -27,7 +27,7 @@ loginForm.addEventListener("submit", async function(event){
         const data = await response.json();
         if(response.ok){
             alert('login successful! Welcome ,')
-            window.location.href = 'index.html'
+            window.location.href = 'Write.html'
         }else{
             alert(data.message || 'login failed')
         }
