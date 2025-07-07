@@ -4,9 +4,11 @@ writeForm.addEventListener("submit", async function(event){
     event.preventDefault(); //prevent from refreshing or reloading the page
 
     const title =  document.getElementById("title").value;
-    const uploadImage = document.getElementById("uploadImage").file[0]
     const excerpt = document.getElementById("excerpt").value;
     const body = document.getElementById("body").value;
+    const imageInput = document.getElementById("uploadImage");
+    const uploadImage = imageInput.files[0];
+    const authorId = localStorage.getItem("userId")
 
     if(!authorId){
         alert("user not logged in, Please login again")
@@ -14,7 +16,7 @@ writeForm.addEventListener("submit", async function(event){
         return
     }
 
-    const formData = new formData();
+    const formData = new FormData();
     formData.append("title", title)
     formData.append("uploadImage", uploadImage)
     formData.append("excerpt", excerpt)
@@ -32,7 +34,7 @@ writeForm.addEventListener("submit", async function(event){
 
         if(response.ok){
             alert("post created successfully")
-            formData.reset();
+            writeForm.reset();
             window.location.href = "Explore.html"
         }else{
             alert(result.message)

@@ -14,4 +14,28 @@ model User{
   lastname  String
   email  String @unique
   password  String
+
+  blogs Blog[]
 }
+
+model Blog{
+  id Int @id @default(autoincrement())
+  title String
+  excerpt String
+  body String
+  image Bytes?
+
+  createAt DateTime @default(now())
+
+  authorId Int
+  author  User @relation(fields: [authorId], references:[id])
+}
+
+//types of relationship
+//1:1 real world example of this: a person with a national id
+//1:m real world example of this: a teacher teaching many students
+//M:N real world example of this is : many students taking many units
+
+// what is a relation between a user and blog 1:m
+//Primary key - a unique field that identifies a record
+//Foreign Key -  is a primary key of table A in table B. it is used to link two tables

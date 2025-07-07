@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
-
+const multer = require("multer")
+const storage = multer.memoryStorage();
+const upload = multer({storage});
 const app = express();
 
 app.use(express.json());
@@ -58,5 +60,29 @@ app.post("/login", async(req, res)=>{
     }catch(error){
         console.error('Sign In Error', error)
         res.status(500).json({message: "something went wrong", error:error.message})
+    }
+})
+
+// create blog
+app.post("/write", upload.single("uploadImage"), async(req, res)=>{
+    const {title, excerpt,body, authorId} = req.body;
+    const image = req.file;
+
+    try{
+        const blog = await prisma.blog.create({
+            data:{
+                title,
+                excerpt,
+                body,
+                image: req.file.buffer,
+                author: {
+                    connect: {id: parseInt(authorId)}//link blog to user
+                }
+            }
+        })
+        res.status(201).json({message: "Blog created successfuly", blog})
+    }catch(error){
+        console.error(error);
+        res.status(500).json({message: "Internal server error"})
     }
 })
